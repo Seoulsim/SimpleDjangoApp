@@ -11,7 +11,7 @@ def product_list(request):
 
     # Apply the filters for Query, Category, and Tags
     if query:
-        filters &= Q(description__icontains=query)
+        filters &= Q(name__icontains=query) | Q(description__icontains=query)
         
     if category:
         filters &= Q(category__id=category)
